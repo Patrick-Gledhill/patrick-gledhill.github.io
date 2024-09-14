@@ -1455,14 +1455,14 @@ class Player {
 					var vx = Math.cos(angle);
 					var vy = Math.sin(angle);
 
-					this.velX += vx * this.engine.healthPC;
-					this.velY += vy * this.engine.healthPC;
+					this.velX += vx * this.engine.healthPC * this.acceleration;
+					this.velY += vy * this.engine.healthPC * this.acceleration;
 				}
 			}
 		} else {
 			// alert(joystick.vx)
-			this.velX += joystick.vx /* adjAcceleration * this.engine.healthPC*/;
-			this.velY += joystick.vy /* adjAcceleration * this.engine.healthPC*/;
+			this.velX += joystick.vx * this.acceleration /* adjAcceleration * this.engine.healthPC*/;
+			this.velY += joystick.vy * this.acceleration /* adjAcceleration * this.engine.healthPC*/;
 			if (joystick2.active == true) {
 				this.tGunAngle = Math.atan2(joystick2.vy, joystick2.vx);
 			}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        const light = {
+            x: 400,
+            y: 300
+        };
+
+        const rectangles = [
+            { x: 100, y: 100, width: 100, height: 200 },
+            { x: 300, y: 50, width: 150, height: 100 },
+            { x: 500, y: 300, width: 100, height: 150 },
+        ];
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the rectangles as shadow quads
+            ctx.fillStyle = 'black';
+            for (const rect of rectangles) {
+                ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
+            }
+
+            // Calculate and draw shadows
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.beginPath();
+            ctx.moveTo(light.x, light.y);
+            for (const rect of rectangles) {
+                ctx.lineTo(rect.x + rect.width / 2, rect.y + rect.height / 2);
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.globalCompositeOperation = 'source-over';
+
+            // Draw the light source
+            ctx.fillStyle = 'yellow';
+            ctx.beginPath();
+            ctx.arc(light.x, light.y, 20, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function onMouseMove(event) {
+            const canvasRect = canvas.getBoundingClientRect();
+            light.x = event.clientX - canvasRect.left;
+            light.y = event.clientY - canvasRect.top;
+            draw();
+        }
+
+        canvas.addEventListener('mousemove', onMouseMove);
+
+        draw(); // Initial draw
+
+    </script>
+</body>
+</html>

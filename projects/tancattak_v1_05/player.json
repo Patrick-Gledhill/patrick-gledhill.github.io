@@ -1,0 +1,11 @@
+{
+    "x": -16,
+    "y": -16,
+    "width": 32,
+    "height": 64,
+    "color": "#00ff80",
+    "bc": "#008040",
+    "weapons": "shotgun",
+    "weaponClass": "shotgun",
+    "gunAngle": 1
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2D Softbody with Matter.js</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.17.1/matter.min.js"></script>
+</head>
+<body>
+	<script>
+		// Setup Matter.js
+		const Engine = Matter.Engine,
+			Render = Matter.Render,
+			World = Matter.World,
+			Bodies = Matter.Bodies,
+			Composites = Matter.Composites,
+			Constraint = Matter.Constraint,
+			Mouse = Matter.Mouse,
+			MouseConstraint = Matter.MouseConstraint,
+			Runner = Matter.Runner;
+
+		const engine = Engine.create();
+		const render = Render.create({
+			element: document.body,
+			engine: engine,
+			options: {
+				width: 800,
+				height: 600,
+				wireframes: false,
+			},
+		});
+
+		// Create a soft body (particle-based soft body)
+		const softBody = Composites.softBody(
+			300, // x position
+			50, // y position
+			10,   // columns
+			10,   // rows
+			0,   // columnGap
+			0,   // rowGap
+			false, // crossBrace
+			10,   // particleRadius
+			{   // particleOptions
+				render: { visible: true },
+			}
+		);
+
+		// Hide the constraints between particles
+		for (const constraint of softBody.constraints) {
+			constraint.render.visible = false;
+		}
+
+		// Create walls
+		const walls = [
+			Bodies.rectangle(400, 0, 750, 50, { isStatic: true }),
+			Bodies.rectangle(400, 600, 750, 50, { isStatic: true }),
+			Bodies.rectangle(0, 300, 50, 600, { isStatic: true }),
+			Bodies.rectangle(800, 300, 50, 600, { isStatic: true }),
+		];
+
+		// Add everything to the world
+		World.add(engine.world, [softBody, ...walls]);
+
+		// Create a mouse constraint for interaction
+		const mouse = Mouse.create(render.canvas);
+		const mouseConstraint = MouseConstraint.create(engine, {
+			mouse: mouse,
+			constraint: {
+				stiffness: 0.2,
+				render: {
+					visible: false,
+				},
+			},
+		});
+
+		// Add the mouse constraint to the world
+		World.add(engine.world, mouseConstraint);
+
+		// Create a runner to run the engine
+		const runner = Runner.create();
+		Runner.run(runner, engine);
+
+		Render.run(render);
+	</script>
+</body>
+</html>

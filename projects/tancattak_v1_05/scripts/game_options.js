@@ -1,0 +1,1 @@
+var pSizeSlider = document.getElementById("particle-size-slider");

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="shortcut icon" href="assets/tancattak_favicon.png" type="image/png">
+	<link rel="apple-touch-icon" href="assets/tancattak_logo.png">
+	<link rel="stylesheet" href="styles/styles.css">
+	<script src="scripts/round_rect.js" defer></script>
+	<script src="scripts/index.js" defer></script>
+	<script src="scripts/mobile.js" defer></script>
+	<script src="scripts/game_options.js" defer></script>
+	<title>Tancattak</title>
+</head>
+<body>
+	<div class="main-menu" id="main-menu">
+		<div class="menu-container">
+			<div class="title-logo">
+				<h1>Tancattak</h1>
+			</div>
+			<div class="menu-buttons">
+				<button type="button" id="play-button" class="btn-tg">Play</button>
+				<button type="button" id="options-button">Game Options</button>
+			</div>
+		</div>
+	</div>
+	<div id="devMenu">
+		<div class="flex-row">
+			<label for="devMouseAction">Mouse Action:</label>
+			<div class="select">
+				<select id="devMouseAction">
+					<option value="create">: Create :</option>
+					<option value="delete">: Delete :</option>
+					<option value="edit">: Edit :</option>
+				</select>
+			</div>
+			<label for="devSelectItem">Create:</label>
+			<div class="select">
+				<select id="devSelectItem">
+					<option value="player_start">: Player Start :</option>
+					<option value="wall">: Wall :</option>
+					<option value="breakable_wall">: Breakable Wall :</option>
+					<option value="short_wall">: Short Wall :</option>
+					<option value="enemy">: Enemy :</option>
+					<option value="stationary_enemy">: Stationary Enemy:</option>
+					<option value="enemy_spawner">: Enemy Spawner :</option>
+					<option value="ally">: Ally :</option>
+					<option value="ally_spawner">: Ally Spawner :</option>
+					<option value="teammate">: Teammate :</option>
+					<option value="medic">: Medic :</option>
+					<option value="health_station">: Health Station :</option>
+					<option value="bb_store">: BB's Store :</option>
+					<option value="health_kit">: Health Kit :</option>
+					<option value="repair_kit">: Repair Kit :</option>
+					<option value="dummy">: NPC Tank :</option>
+				</select>
+			</div>
+			<label for="devGridSize">Grid Size:</label>
+			<div class="select">
+				<select id="devGridSize">
+					<option value="4">: 4 :</option>
+					<option value="8">: 8 :</option>
+					<option value="16">: 16 :</option>
+					<option value="32">: 32 :</option>
+					<option value="64">: 64 :</option>
+					<option value="128">: 128 :</option>
+					<option value="256">: 256 :</option>
+					<option value="512">: 512 :</option>
+					<option value="1024">: 1024 :</option>
+					<option value="2048">: 2048 :</option>
+
+					<!-- <option value="custom">: Custom Width And Height :</option> -->
+					<!-- <optgroup label="Commonly Used">
+					<option value="192">: 192 :</option>
+					</optgroup> -->
+				</select>
+			</div>
+		</div>
+		<div class="flex-row">
+			<button type="button" id="exportMapButton">Export Map</button>
+			<button type="button" id="importMapButton">Import Map</button>
+			<p id="exportCodeDisplay"
+				style="background: #00000080; padding: 15px; border-radius: 10px; font-size: 12px; max-height: 30vh; overflow-y: scroll;">
+				Import Map</button>
+		</div>
+	</div>
+	<div id="store">
+		<header class="menu-header">
+			<div>
+				<h2>BB's Upgrade Shop</h2>
+			</div>
+			<div>
+				<button onclick="store.close(); gameLoop = setInterval(main, 1000 / fps); clearInterval(shopDrawLoop); "
+					class="close-btn" type="button">
+					<svg viewbox="0 0 20 20" width="20" height="20">
+						<path d="m4 4 l12 12 m0 -12 l-12 12"
+							style="stroke-width: 4px; stroke-linecap: round; stroke-linejoin: round;">
+					</svg>
+				</button>
+			</div>
+		</header>
+		<div class="store-container">
+			<div>
+				<p id="coin-display"
+					style="background: #00000080; border-radius: 10px 10px 0px 0px; padding: 15px; width: 25vw">Coins: 0
+				</p>
+				<canvas id="store-canvas"></canvas>
+				<select id="equippedWeapon" style="width: 25vw;">
+					<option value="basic">Equip Weapon: Basic</option>
+				</select>
+				<br>
+				<select id="equippedColor" style="width: 25vw;">
+					<option value="green">Paint Color: Green</option>
+					<option value="blue">Paint Color: Blue</option>
+					<option value="light blue">Paint Color: Light Blue</option>
+					<option value="purple">Paint Color: Purple</option>
+				</select>
+			</div>
+			<div>
+				<h2 style="margin: 15px;">Weapons</h2>
+				<hr>
+				<div class="store-weapons">
+					<!-- <button type="button" data-class-name="D360" data-tank-class="d360" data-tank-class-cost="0" class="red-btn">Purchase D360 Class<br>Cost: 0 Coins</button> -->
+					<button type="button" data-class-name="Sniper" data-tank-class="sniper" data-tank-class-cost="250"
+						class="red-btn">Purchase Sniper Class<br>Cost: 250 Coins</button>
+					<button type="button" data-class-name="Twin Barrels" data-tank-class="twinFire"
+						data-tank-class-cost="250" class="red-btn">Purchase Twin Barrels Class<br>Cost: 250
+						Coins</button>
+					<button type="button" data-class-name="Shotgun" data-tank-class="shotgun" data-tank-class-cost="400"
+						class="red-btn">Purchase Shotgun Class<br>Cost: 400 Coins</button>
+					<button type="button" data-class-name="Minigun" data-tank-class="minigun" data-tank-class-cost="450"
+						class="red-btn">Purchase Minigun Class<br>Cost: 450 Coins</button>
+					<button type="button" data-class-name="Cannon" data-tank-class="cannon" data-tank-class-cost="500"
+						class="red-btn">Purchase Cannon Class<br>Cost: 500 Coins</button>
+					<button type="button" data-class-name="Field Gun" data-tank-class="fieldGun"
+						data-tank-class-cost="500" class="red-btn">Purchase Field Gun Class<br>Cost: 500 Coins</button>
+					<button type="button" data-class-name="Supressor" data-tank-class="supressor"
+						data-tank-class-cost="600" class="red-btn">Purchase Supressor Class<br>Cost: 600 Coins</button>
+					<button type="button" data-class-name="Liquid Nitrogen Dispenser"
+						data-tank-class="liquidNitrogenDispenser" data-tank-class-cost="1000" class="red-btn">Purchase
+						Liquid Nitrogen Dispenser Class<br>Cost: 1000 Coins</button>
+					<button type="button" data-class-name="Neutralizer EMP" data-tank-class="neutralizerEMP"
+						data-tank-class-cost="1000" class="red-btn">Purchase Neutralizer EMP Class<br>Cost: 1000
+						Coins</button>
+					<!-- <button type="button" data-class-name="Shotgun" data-tank-class="shotgun" data-tank-class-cost="400" class="red-btn">Purchase Shotgun Class<br>Cost: 400 Coins</button> -->
+				</div>
+				<h2 style="margin: 15px;">Upgrades</h2>
+				<hr>
+				<div class="store-weapons">
+					<button type="button" data-tank-upgrade-type="speed" data-tank-upgrade="0.1"
+						data-tank-upgrade-cost="100" class="red-btn">Purchase Tank Speed Upgrade I<br>Cost: 100
+						Coins</button>
+					<button type="button" data-tank-upgrade-type="speed" data-tank-upgrade="0.25"
+						data-tank-upgrade-cost="200" class="red-btn">Purchase Tank Speed Upgrade II<br>Cost: 200
+						Coins</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mobile-options">
+		<button type="button" id="interact-btn">Interact</button>
+		<button type="button" id="open-close-dev">Dev</button>
+	</div>
+	<div class="game-options">
+		<header class="menu-header">
+			<div></div>
+			<button onclick="" class="close-btn" type="button">
+				<svg viewbox="0 0 20 20" width="20" height="20">
+					<path d="m4 4 l12 12 m0 -12 l-12 12"
+						style="stroke-width: 4px; stroke-linecap: round; stroke-linejoin: round;">
+				</svg>
+			</button>
+		</header>
+		<label for="particle-size-slider">Particle Size:</label>
+		<input type="range" id="particle-size-slider" min="0.01" max="2" step="0.01" value="1">
+	</div>
+	<canvas id="scene"></canvas>
+</body>
+</html>

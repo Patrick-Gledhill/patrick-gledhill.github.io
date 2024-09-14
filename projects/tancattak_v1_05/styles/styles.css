@@ -1,0 +1,300 @@
+*,
+*:before,
+*:after {
+	font-family: roboto, Arial, Helvetica, sans-serif, system-ui;
+	padding: 0px 0px;
+	margin: 0px 0px;
+	box-sizing: border-box;
+}
+
+h1 {
+	font-size: 50px;
+}
+
+p,
+label,
+a,
+input,
+textarea,
+pre {
+	font-size: 16px;
+}
+
+/* html {
+	width: 100vw;
+	height: 100vh;
+} */
+
+body {
+	height: 100%;
+	overflow: hidden;
+	color: #ffffff;
+	background-color: #202020;
+	touch-action: none;
+}
+
+canvas {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+#store {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin: 10px;
+	background: #202020;
+	border: 3px solid #404040;
+	box-shadow: 0px 0px 0px 20px #000000cc;
+	display: none;
+	border-radius: 10px;
+	z-index: 99;
+	flex-direction: column;
+}
+
+button {
+	font-size: 16px;
+	padding: 15px 25px;
+	border-radius: 10px;
+	background: #000000;
+	border: none;
+	color: #ffffff;
+	transition: all 0.2s ease-in-out 0s;
+	cursor: pointer;
+	height: fit-content;
+	touch-action: auto;
+}
+
+button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+button:hover {
+	background: #ffffff;
+	color: #000000;
+}
+
+.green-btn {
+	background: #60cc60;
+}
+
+.red-btn {
+	background: #cc6060;
+}
+
+#devMenu {
+	position: absolute;
+	padding: 15px;
+	bottom: 0px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.flex-row {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+select {
+	padding: 15px;
+	appearance: none;
+	border: 1px solid #ffffff;
+	background: #000000;
+	color: #ffffff;
+	font-size: 16px;
+	outline: none;
+}
+
+.select {
+	position: relative;
+}
+
+/* .select:before {
+    content: "\26F6";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-57%);
+    pointer-events: none;
+} */
+
+.close-btn {
+	border-radius: 50%;
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 1;
+	stroke: #ffffff;
+	background: transparent;
+}
+
+.close-btn:hover {
+	stroke: #000000;
+}
+
+.menu-header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px;
+}
+
+.mobile-options {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	padding: 15px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.game-options {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin: 25px;
+	background: #606060;
+	border: 3px solid #808080;
+	box-shadow: 0px 0px 20px #000000cc;
+	display: none;
+	border-radius: 10px;
+	z-index: 999;
+}
+
+.store-container {
+	display: flex;
+	/* flex-wrap: wrap; */
+	overflow-y: scroll;
+	padding: 15px;
+	width: 100%;
+	flex-grow: 1;
+	gap: 15px;
+	align-content: start;
+}
+
+.store-weapons {
+	flex-grow: 1;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	align-content: start;
+	gap: 15px;
+	overflow-y: scroll;
+	padding-bottom: 15px;
+}
+
+#store-canvas {
+	width: 25vw;
+	height: 25vw;
+	display: block;
+}
+
+.main-menu {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url(../assets/tancattak_bg_full.png) #000000;
+	background-size: 2048px;
+	/* background-repeat: no-repeat; */
+	animation: scrollBg 30s linear 0s infinite;
+}
+
+@keyframes scrollBg {
+	0% {
+		background-position: 0px 0px;
+	}
+
+	100% {
+		background-position: 2048px 2048px;
+	}
+}
+
+.menu-container {
+	padding: 15px;
+	border-radius: 15px;
+	background: #00000080;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	max-width: 80%;
+}
+
+.menu-buttons {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 15px;
+	/* background: #202020cc; */
+	padding: 15px;
+	border-radius: 15px;
+	overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+	background: transparent;
+	border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #808080;
+	/* border-radius: 0px 15px 15px 0px; */
+	border-radius: 15px;
+	/* box-shadow: 0px 0px 10px #000000; */
+}
+
+.vertical-list-right {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	align-items: stretch;
+	width: 100%;
+	/* justify-content: ce; */
+}
+
+.btn-tg {
+	background: #404040;
+}
+
+/* .btn-tg:before {
+	content: "00 ";
+	background: url(../assets/tbd_tank_game_shortcut.png);
+	background-size: contain;
+	color: transparent;
+	background-position: center;
+	background-repeat: no-repeat;
+} */
+
+.btn-tg:after {
+	content: " 00";
+	background: url(../assets/tbd_tank_game_shortcut.png);
+	background-size: contain;
+	color: transparent;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+hr {
+	border-color: #404040;
+	margin-bottom: 15px;
+}

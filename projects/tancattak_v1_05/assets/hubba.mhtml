@@ -1,0 +1,143 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///home/chronos/u-f67ee3801f361c06666e5ac32579833937235b79/MyFiles/tankgame/index.html?dev
+Subject: Document
+Date: Sat, 24 Jun 2023 01:49:29 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--uV0PdGwZhjjhduhOxfaooMk9G9UlSOj7H9r9K2ovuN----"
+
+
+------MultipartBoundary--uV0PdGwZhjjhduhOxfaooMk9G9UlSOj7H9r9K2ovuN----
+Content-Type: text/html
+Content-ID: <frame-01D97DCBADEFD1A18BE766F9C2FDC5DD@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///home/chronos/u-f67ee3801f361c06666e5ac32579833937235b79/MyFiles/tankgame/index.html?dev
+
+<!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8">
+=09
+	<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1=
+.0">
+	<link rel=3D"stylesheet" href=3D"file:///home/chronos/u-f67ee3801f361c0666=
+6e5ac32579833937235b79/MyFiles/tankgame/styles/styles.css">
+=09
+	<title>Document</title>
+</head>
+<body>
+	<div id=3D"devMenu" style=3D"display: none;">
+		<p id=3D"exportCodeDisplay"></p>
+		<button type=3D"button" id=3D"exportMapButton">Export Map</button>
+		<button type=3D"button" id=3D"importMapButton">Import Map</button>
+		<label for=3D"devMouseAction">Mouse Action:</label>
+		<div class=3D"select">
+			<select id=3D"devMouseAction">
+				<option value=3D"create">: Create :</option>
+				<option value=3D"delete">: Delete :</option>
+			</select>
+		</div>
+		<label for=3D"devSelectItem">Create:</label>
+		<div class=3D"select">
+			<select id=3D"devSelectItem">
+				<option value=3D"player_start">: Player Start :</option>
+				<option value=3D"wall">: Wall :</option>
+				<option value=3D"enemy">: Enemy :</option>
+				<option value=3D"health_station">: Health Station :</option>
+				<option value=3D"bb_store">: BB's Store :</option>
+				<option value=3D"health_kit">: Health Kit :</option>
+				<option value=3D"dummy">: NPC Tank :</option>
+			</select>
+		</div>
+		<label for=3D"devGridSize">Grid Size:</label>
+		<div class=3D"select">
+			<select id=3D"devGridSize">
+				<option value=3D"8">: 8 :</option>
+				<option value=3D"16">: 16 :</option>
+				<option value=3D"32">: 32 :</option>
+				<option value=3D"64">: 64 :</option>
+				<option value=3D"128">: 128 :</option>
+				<option value=3D"256">: 256 :</option>
+				<optgroup label=3D"Commonly Used">
+					<option value=3D"192">: 192 :</option>
+				</optgroup>
+			</select>
+		</div>
+	</div>
+	<div id=3D"store">
+		<header class=3D"store-header">
+			<div>
+				<h2>BB's Upgrade Shop</h2>
+			</div>
+			<div>
+				<button class=3D"close-btn" type=3D"button">
+					<svg viewBox=3D"0 0 20 20" width=3D"20" height=3D"20">
+						<path d=3D"m4 4 l12 12 m0 -12 l-12 12" style=3D"stroke-width: 4px; st=
+roke-linecap: round; stroke-linejoin: round;">
+					</path></svg>
+				</button>
+			</div>
+		</header>
+		<canvas id=3D"gunDisplay" width=3D"256" height=3D"256"></canvas>
+		<div>
+			<button type=3D"button" id=3D"buy-sniper" class=3D"red-btn" disabled=3D"=
+">Purchase Sniper Class<br>Cost: 250 Coins</button>
+			<button type=3D"button" id=3D"buy-shotgun" class=3D"red-btn" disabled=3D=
+"">Purchase Shotgun Class<br>Cost: 400 Coins</button>
+		</div>
+	</div>
+	<canvas id=3D"scene" width=3D"4098" height=3D"1995"></canvas>
+
+</body></html>
+------MultipartBoundary--uV0PdGwZhjjhduhOxfaooMk9G9UlSOj7H9r9K2ovuN----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///home/chronos/u-f67ee3801f361c06666e5ac32579833937235b79/MyFiles/tankgame/styles/styles.css
+
+@charset "utf-8";
+
+*, ::before, ::after { font-family: roboto, Arial, Helvetica, sans-serif, s=
+ystem-ui; padding: 0px; margin: 0px; box-sizing: border-box; }
+
+p, label, a, input, textarea, pre { font-size: 16px; }
+
+body { overflow: hidden; color: rgb(255, 255, 255); }
+
+canvas { display: block; }
+
+#store { position: absolute; inset: 0px; margin: 10px; background: rgb(96, =
+96, 96); border: 3px solid rgb(128, 128, 128); box-shadow: rgba(0, 0, 0, 0.=
+8) 0px 0px 0px 20px; display: none; border-radius: 10px; }
+
+button { font-size: 16px; padding: 15px 25px; border-radius: 10px; backgrou=
+nd: rgb(0, 0, 0); border: none; color: rgb(255, 255, 255); transition: all =
+0.2s ease-in-out 0s; cursor: pointer; height: fit-content; }
+
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+button:hover { background: rgb(255, 255, 255); color: rgb(0, 0, 0); }
+
+.green-btn { background: rgb(96, 204, 96); }
+
+.red-btn { background: rgb(204, 96, 96); }
+
+.flex-list { display: flex; flex-wrap: wrap; gap: 15px; justify-content: le=
+ft; overflow-y: scroll; height: fit-content; max-height: 100%; }
+
+#devMenu { position: absolute; padding: 15px; bottom: 0px; display: flex; a=
+lign-items: center; justify-content: left; gap: 15px; }
+
+select { padding: 15px; appearance: none; border: 1px solid rgb(255, 255, 2=
+55); background: rgb(0, 0, 0); color: rgb(255, 255, 255); font-size: 16px; =
+outline: none; }
+
+.select { position: relative; }
+
+.close-btn { border-radius: 50%; padding: 15px; display: flex; justify-cont=
+ent: center; align-items: center; line-height: 1; stroke: rgb(255, 255, 255=
+); background: transparent; }
+
+.close-btn:hover { stroke: rgb(0, 0, 0); }
+
+.store-header { width: 100%; display: flex; justify-content: space-between;=
+ align-items: center; padding: 15px; }
+------MultipartBoundary--uV0PdGwZhjjhduhOxfaooMk9G9UlSOj7H9r9K2ovuN------

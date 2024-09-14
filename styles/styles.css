@@ -202,7 +202,6 @@ p, a, label, button {
     padding: 16px;
     grid-template-columns: 2fr 1fr;
     grid-auto-rows: 1fr;
-    /* grid */
     gap: 16px;
 }
 

@@ -546,11 +546,6 @@ function main() {
 
 	ctx.restore();
 
-	mouse.velocity.x = 0;
-	mouse.velocity.y = 0;
-	mouse.previous.x = mouse.position.x;
-	mouse.previous.y = mouse.position.y;
-
 	if (selectedObj != null) {
 		camera.position = selectedObj.position.clone().divide(20000000);
 	}
@@ -560,6 +555,11 @@ function main() {
 	timeScaleDisplay.innerText = timeAcceleration;
 
 	simStep++;
+
+	mouse.velocity.x = 0;
+	mouse.velocity.y = 0;
+	mouse.previous.x = mouse.position.x;
+	mouse.previous.y = mouse.position.y;
 
 	updateIdx = requestAnimationFrame(main);
 }

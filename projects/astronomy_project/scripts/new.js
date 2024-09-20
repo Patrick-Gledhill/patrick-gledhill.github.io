@@ -551,7 +551,11 @@ function main() {
 	mouse.previous.x = mouse.position.x;
 	mouse.previous.y = mouse.position.y;
 
-	updateSelectedObjValues();
+	if (selectedObj != null) {
+		camera.position = selectedObj.position.clone().divide(20000000);
+		camera.viewScale = (selectedObj.radius / 20000000) / 1920;
+		updateSelectedObjValues();
+	}
 	timeScaleDisplay.innerText = timeAcceleration;
 
 	simStep++;

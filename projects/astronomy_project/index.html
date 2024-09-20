@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./scripts/pg_engine_modified.js" defer></script>
+	<script src="./scripts/new.js" defer></script>
+	<link rel="stylesheet" href="./styles/styles.css">
+	<title>Multiple Star Systems</title>
+</head>
+<body>
+	<canvas id="scene"></canvas>
+	<div id="selected-obj-properties-container">
+		<p class="bordered-text" style="margin-bottom: 8px;">Selected Object:</p>
+		<div class="bordered-text">
+			<p>Radius: <span id="selected-obj-radius">100</span> m</p>
+			<p>Density: <span id="selected-obj-density">1000</span> kg/m³</p>
+			<p>Volume: <span id="selected-obj-volume">4188790.2</span> m³</p>
+			<p>Mass: <span id="selected-obj-mass">4188790200</span> kg</p>
+			<p>Velocity: <span id="selected-obj-velocity">0</span> m/s</p>
+		</div>
+	</div>
+	<div class="time-scale-container">
+		<p class="bordered-text">Time Scale: <span id="time-scale-display">1</span></p>
+	</div>
+	<div class="settings-bar">
+		<select id="selected-star-system">
+			<option value="3">Trinary Star System</option>
+			<option value="4">Quaternary Star System</option>
+			<option value="5">Quinary Star System</option>
+			<option value="solar-system">Our Solar System</option>
+		</select>
+		<button type="button" id="open-slides">Open Info</button>
+	</div>
+	<div id="project-slides-container">
+		<h1 class="bordered-text">Multiple Star Systems</h1>
+		<section class="related-sections">
+			<h2>What is a Multiple Star System?</h2>
+			<section class="padding-16 bordered-text-light">
+				<p>A multiple star system is a group of three or more stars that are gravitationally bound and orbit
+					around a common center of mass (the barycenter). The most common type of multiple star system is a
+					binary star system, but there are many systems with three or more stars.</p>
+				<br>
+				<img src="./assets/sextuple_system-1.webp" class="project-slides-image">
+			</section>
+			<h3 class="dim-text">How Are They Possible?</h3>
+			<section class="padding-16 bordered-text-light">
+				<p>Multiple star systems are possible due to the balance of gravitational forces between the stars.
+					While their orbits can be stable over long periods, they are often complex rather than perfectly
+					precise. Small perturbations can influence their trajectories, especially in systems with three or
+					more stars, potentially leading to significant changes or even the ejection of one of the stars in
+					certain cases.</p>
+			</section>
+		</section>
+
+		<section class="related-sections">
+			<h2>Trinary Star Systems</h2>
+			<section class="padding-16 bordered-text-light">
+				<p>A trinary star system, or triple star system, consists of three stars gravitationally bound to each
+					other. These systems often consist of two stars orbiting closely as a binary, with the third star
+					orbiting the binary at a greater distance.</p>
+					<br>
+					<img src="./assets/koi-5-diagram.webp" class="project-slides-image">
+			</section>
+			<h3 class="dim-text">The Alpha Centauri System</h3>
+			<section class="padding-16 bordered-text-light">
+				<p>The <strong>Alpha Centauri</strong> system is the closest stellar system to Earth. It consists of three stars: <strong>Alpha
+					Centauri A</strong>, <strong>Alpha Centauri B</strong> (which form a close binary pair), and <strong>Proxima Centauri</strong>, which orbits
+					the
+					pair at a much greater distance. Proxima is the closest individual star to our solar system.</p>
+			</section>
+			<h3 class="dim-text">The HD 131399 Star System</h3>
+			<section class="padding-16 bordered-text-light">
+				<p>The <strong>HD 131399</strong> system is a trinary star system located about 320 light-years away in the constellation
+					Centaurus. It features a unique configuration with one of its stars, <strong>HD 131399A</strong>, being orbited by
+					two
+					other stars, <strong>HD 131399B</strong> and <strong>HD 131399C</strong>, in a wide orbit. This system gained attention due to the
+					discovery of a giant planet, <strong>HD 131399Ab</strong>, which orbits one of the stars in this complex arrangement.
+				</p>
+			</section>
+		</section>
+
+		<section class="related-sections">
+			<h2>Quaternary Star Systems</h2>
+			<section class="padding-16 bordered-text-light">
+				<p>A quaternary star system consists of four stars that are gravitationally bound and orbit around a
+					common center of mass. These systems are typically arranged hierarchically, with two pairs of stars
+					orbiting each other in a stable configuration.</p>
+					<br>
+					<img src="./assets/quaternary_star_system.gif" class="project-slides-image">
+			</section>
+			<h3 class="dim-text">The PH1 Star System</h3>
+			<section class="padding-16 bordered-text-light">
+				<p>The <strong>PH1 system</strong>, also known as <strong>Kepler-64</strong>, is a quaternary star system that contains a circumbinary
+					planet (a planet that orbits two stars). The two central stars are orbited by another pair of stars
+					at a farther distance. This system is notable for being one of the few where a planet has been found
+					in a quaternary system.</p>
+			</section>
+			<h3 class="dim-text">The KOI-2626 Star System</h3>
+			<section class="padding-16 bordered-text-light">
+				<p>The <strong>KOI-2626</strong> system is another quaternary system where a planet has been detected. It is a complex
+					system with four stars interacting in a way that results in an unusual orbital configuration, and it
+					demonstrates the possibility of planetary formation in systems with more than two stars.</p>
+			</section>
+		</section>
+
+		<section class="related-sections">
+			<h2>Quinary Star Systems</h2>
+			<section class="padding-16 bordered-text-light">
+				<p>A quinary star system consists of five stars bound together. These systems are very rare and tend to
+					be arranged hierarchically to maintain stability.</p>
+					<br>
+					<img src="./assets/hierarchically_ordered_ss.png" class="project-slides-image">
+			</section>
+			<h3 class="dim-text">1SWASP Star System</h3>
+			<section class="padding-16 bordered-text-light">
+				<p>The <strong>1SWASP</strong> system is a quintuple star system that gained attention due to its unusual configuration,
+					where five stars are organized in a stable arrangement of close binaries and a more distant
+					companion.
+					Such systems are quite rare, and this one provided insights into the dynamics of quinary star
+					systems.</p>
+			</section>
+			<h3 class="dim-text">Other?</h3>
+			<section class="padding-16 bordered-text-light">
+				<p>Other quinary systems are extremely rare and often have unique configurations that are difficult to
+					study due to their complex gravitational interactions. Research into these systems helps expand our
+					understanding of how multiple star systems form and evolve over time.</p>
+			</section>
+		</section>
+
+		<section class="related-sections">
+			<h2>Are There Systems With More Than 5 Stars?</h2>
+			<br>
+			<img src="./assets/castor_star_system.jpg" class="project-slides-image">
+			<section class="padding-16 bordered-text-light">
+				<p>Yes, systems with more than five stars do exist, but they are exceedingly rare. These systems,
+					known as <strong>senary</strong> (6) or even higher-order star systems, involve intricate hierarchies of binaries
+					or trinaries orbiting a common center of mass. A well-known example is <strong>Castor</strong>, a senary star
+					system in which six stars are grouped into three binary pairs. Systems with more than five stars
+					are fascinating because their gravitational dynamics are much more complex, and studying them
+					provides unique insights into the behavior of stars in extreme environments.</p>
+			</section>
+		</section>
+
+		<button type="button" id="close-slides">Close</button>
+	</div>
+</body>
+</html>

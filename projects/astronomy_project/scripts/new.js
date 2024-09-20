@@ -556,7 +556,7 @@ function main() {
 	}
 
 	updateSelectedObjValues();
-	
+
 	timeScaleDisplay.innerText = timeAcceleration;
 
 	simStep++;

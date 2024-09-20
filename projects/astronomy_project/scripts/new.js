@@ -407,10 +407,10 @@ function createQuinaryStarSystem() {
 
 function createSolarSystem() {
 	var sun = new CircleObj(0, 0, 0, 696340000, 1410, "#fff4b3", true, "#ff8000");
-	var mercury = new CircleObj(-50478000000 / 10, 0, 0, 2439700, 5430, "#bfbfbf", false);
-	var venus = new CircleObj(-108520000000 / 10, 0, 0, 6051800, 5240, "#bfa050", false);
-	var earth = new CircleObj(-150240000000 / 10, 0, 0, 6378100, 5510, "#00bfff", false);
-	var mars = new CircleObj(-224000000000 / 10, 0, 0, 3389500, 3930, "#ff4010", false);
+	var mercury = new CircleObj(-50478000000, 0, 0, 2439700, 5430, "#bfbfbf", false);
+	var venus = new CircleObj(-108520000000, 0, 0, 6051800, 5240, "#bfa050", false);
+	var earth = new CircleObj(-150240000000, 0, 0, 6378100, 5510, "#00bfff", false);
+	var mars = new CircleObj(-224000000000, 0, 0, 3389500, 3930, "#ff4010", false);
 
 	mercury.velocity.y = mercury.calculateOrbitalVelocity(sun);
 	venus.velocity.y = venus.calculateOrbitalVelocity(sun);

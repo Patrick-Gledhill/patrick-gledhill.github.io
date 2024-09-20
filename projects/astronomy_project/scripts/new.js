@@ -492,6 +492,10 @@ function main() {
 		engine.update(dt * timeAcceleration);
 	}
 
+	if (selectedObj != null) {
+		camera.position = selectedObj.position.clone().divide(20000000);
+	}
+
 	ctx.save();
 	ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
 	ctx.lineWidth = 2;
@@ -546,11 +550,7 @@ function main() {
 
 	ctx.restore();
 
-	if (selectedObj != null) {
-		camera.position = selectedObj.position.clone().divide(20000000);
-	}
-
-	updateSelectedObjValues();
+	updateSelectedObjValues(); 
 
 	timeScaleDisplay.innerText = timeAcceleration;
 

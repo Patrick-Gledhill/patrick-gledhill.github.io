@@ -543,7 +543,7 @@ function main() {
 		ctx.lineWidth = 2 / camera.viewScale;
 		ctx.strokeStyle = "#80808080";
 		ctx.beginPath();
-		ctx.arc(modPos.x, modPos.y, mouse.position.subtract(modPos).length(), 0, 2 * Math.PI, false);
+		ctx.arc(modPos.x, modPos.y, mouse.position.multiply(20000000).subtract(modPos).length(), 0, 2 * Math.PI, false);
 		ctx.closePath();
 		ctx.stroke();
 		ctx.restore();

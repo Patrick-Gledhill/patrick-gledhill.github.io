@@ -538,7 +538,7 @@ function main() {
 	ctx.restore();
 
 	if (engine.objects.length > 0) {
-		var modPos = engine.objects[0].position.divide(20000000);
+		var modPos = engine.objects[0].position.divide(1);
 		ctx.save();
 		ctx.lineWidth = 2 / camera.viewScale;
 		ctx.strokeStyle = "#80808080";

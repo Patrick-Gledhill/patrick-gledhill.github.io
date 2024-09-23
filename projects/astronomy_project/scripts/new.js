@@ -411,13 +411,15 @@ function createSolarSystem() {
 	var venus = new CircleObj(-108520000000, 0, 0, 6051800, 5240, "#bfa050", false);
 	var earth = new CircleObj(-150240000000, 0, 0, 6378100, 5510, "#00bfff", false);
 	var mars = new CircleObj(-224000000000, 0, 0, 3389500, 3930, "#ff4010", false);
+	var jupiter = new CircleObj(-778000000000, 0, 0, 69911000, 1326, "#bfa080", false);
 
 	mercury.velocity.y = mercury.calculateOrbitalVelocity(sun);
 	venus.velocity.y = venus.calculateOrbitalVelocity(sun);
 	earth.velocity.y = earth.calculateOrbitalVelocity(sun);
 	mars.velocity.y = mars.calculateOrbitalVelocity(sun);
+	jupiter.velocity.y = jupiter.calculateOrbitalVelocity(sun);
 
-	pObjs = [sun, mercury, venus, earth, mars];
+	pObjs = [sun, mercury, venus, earth, mars, jupiter];
 
 	engine.objects = pObjs;
 }
@@ -535,6 +537,14 @@ function main() {
 	ctx.closePath();
 	ctx.restore();
 
+	if (engine.objects.length > 0) {
+		ctx.strokeStyle = "#80808080";
+		ctx.beginPath();
+		ctx.arc(engine.objects[0].position.x, engine.objects[0].position.y, mouse.position.subtract(engine.objects[0].position).length(), 0, 2 * Math.PI, false);
+		ctx.closePath();
+		ctx.stroke();
+	}
+
 	ctx.restore();
 
 	ctx.save();
@@ -550,7 +560,7 @@ function main() {
 
 	ctx.restore();
 
-	updateSelectedObjValues(); 
+	updateSelectedObjValues();
 
 	timeScaleDisplay.innerText = timeAcceleration;
 
@@ -639,6 +649,13 @@ scene.addEventListener("mousedown", (e) => {
 		if (hitOne == false) {
 			selectedObj = null;
 		}
+	}
+
+	if (mouse.rightdown == true && engine.objects.length > 0) {
+		var star = new CircleObj(mouse.position.x, mouse.position.y, 0, 695700000, 1410, "#fff4b3", true, "#ff8000");
+		star.velocity = star.calculateOrbitalVelocity(engine.objects[0]);
+		pObjs.push(star);
+		engine.addObject(star);
 	}
 });
 

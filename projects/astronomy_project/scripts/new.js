@@ -540,8 +540,8 @@ function main() {
 	if (engine.objects.length > 0) {
 		var modPos = engine.objects[0].position.multiply(20000000);
 		ctx.save();
-		ctx.lineWidth = 2 / camera.viewScale;
-		ctx.strokeStyle = "#80808080";
+		ctx.lineWidth = 50 / camera.viewScale;
+		ctx.strokeStyle = "#00ff00";
 		ctx.beginPath();
 		ctx.arc(modPos.x, modPos.y, mouse.position.multiply(20000000).subtract(modPos).length(), 0, 2 * Math.PI, false);
 		ctx.closePath();

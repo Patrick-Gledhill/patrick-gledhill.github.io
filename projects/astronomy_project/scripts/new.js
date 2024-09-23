@@ -538,12 +538,12 @@ function main() {
 	ctx.restore();
 
 	if (engine.objects.length > 0) {
-		var modPos = engine.objects[0].position.multiply(20000000);
+		var modPos = engine.objects[0].position.divide(20000000);
 		ctx.save();
 		ctx.lineWidth = 50 / camera.viewScale;
 		ctx.strokeStyle = "#00ff00";
 		ctx.beginPath();
-		ctx.arc(modPos.x, modPos.y, mouse.position.multiply(20000000).subtract(modPos).length(), 0, 2 * Math.PI, false);
+		ctx.arc(modPos.x, modPos.y, mouse.position.subtract(modPos).length(), 0, 2 * Math.PI, false);
 		ctx.closePath();
 		ctx.stroke();
 		ctx.restore();

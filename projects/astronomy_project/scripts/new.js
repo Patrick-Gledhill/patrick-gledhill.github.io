@@ -317,13 +317,12 @@ function pointToCircleCollisionDetection(point, circle) {
 var engine = new PhysicsEngine();
 
 // position and radius: kilometers		density: kg/m^3
-var pObjs = [];
 
 function createTrinaryStarSystem() {
-	var star1 = new CircleObj(0, 0, 0, 6957000000, 1410, "#fff4b3", true, "#ff8000");
+	var star1 = new CircleObj(0, 0, 0, 6957000000, 1410, "#ffffb3", true, "#ff8000");
 
-	var star2 = new CircleObj(-112198403000, 1495978710, 0, 695700000, 1410, "#fff4b3", true, "#ff8000");
-	var star3 = new CircleObj(-112198403000, -1495978710, 0, 695700000, 1410, "#fff4b3", true, "#ff8000");
+	var star2 = new CircleObj(-112198403000, 1495978710, 0, 695700000, 1410, "#ffffb3", true, "#ff8000");
+	var star3 = new CircleObj(-112198403000, -1495978710, 0, 695700000, 1410, "#ffffb3", true, "#ff8000");
 
 	var binaryVel = star3.calculateBinaryOrbitalVelocity(star2);
 
@@ -336,18 +335,16 @@ function createTrinaryStarSystem() {
 	star3.velocity.y = orbitVel;
 	star2.velocity.y = orbitVel;
 
-	pObjs = [star1, star2, star3];
-
-	engine.objects = pObjs;
+	engine.objects = [star1, star2, star3];
 }
 
 function createQuaternaryStarSystem() {
-	var star1 = new CircleObj(0, 0, 0, 6957000000, 1410, "#fff4b3", true, "#ff8000");
+	var star1 = new CircleObj(0, 0, 0, 6957000000, 1410, "#ffffb3", true, "#ff8000");
 
-	var star2 = new CircleObj(-112198403000, 1495978710, 0, 695700000, 1410, "#fff4b3", true, "#ff8000");
-	var star3 = new CircleObj(-112198403000, -1495978710, 0, 695700000, 1410, "#fff4b3", true, "#ff8000");
+	var star2 = new CircleObj(-112198403000, 1495978710, 0, 695700000, 1410, "#ffffb3", true, "#ff8000");
+	var star3 = new CircleObj(-112198403000, -1495978710, 0, 695700000, 1410, "#ffffb3", true, "#ff8000");
 
-	var star4 = new CircleObj(112198403000, 0, 0, 695700000, 1410, "#fff4b3", true, "#ff8000");
+	var star4 = new CircleObj(112198403000, 0, 0, 695700000, 1410, "#ffffb3", true, "#ff8000");
 
 	var binaryVel = star3.calculateBinaryOrbitalVelocity(star2);
 
@@ -362,19 +359,17 @@ function createQuaternaryStarSystem() {
 
 	star4.velocity.y = -star4.calculateOrbitalVelocity(star1);
 
-	pObjs = [star1, star2, star3, star4];
-
-	engine.objects = pObjs;
+	engine.objects = [star1, star2, star3, star4];
 }
 
 function createQuinaryStarSystem() {
-	var star1 = new CircleObj(0, 0, 0, 6957000000, 1410, "#fff4b3", true, "#ff8000");
+	var star1 = new CircleObj(0, 0, 0, 6957000000, 1410, "#ffffb3", true, "#ff8000");
 
-	var star2 = new CircleObj(-112198403000, 1495978710, 0, 695700000, 1410, "#fff4b3", true, "#ff8000");
-	var star3 = new CircleObj(-112198403000, -1495978710, 0, 695700000, 1410, "#fff4b3", true, "#ff8000");
+	var star2 = new CircleObj(-112198403000, 1495978710, 0, 695700000, 1410, "#ffffb3", true, "#ff8000");
+	var star3 = new CircleObj(-112198403000, -1495978710, 0, 695700000, 1410, "#ffffb3", true, "#ff8000");
 
-	var star4 = new CircleObj(112198403000, 1495978710, 0, 695700000, 1410, "#fff4b3", true, "#ff8000");
-	var star5 = new CircleObj(112198403000, -1495978710, 0, 695700000, 1410, "#fff4b3", true, "#ff8000");
+	var star4 = new CircleObj(112198403000, 1495978710, 0, 695700000, 1410, "#ffffb3", true, "#ff8000");
+	var star5 = new CircleObj(112198403000, -1495978710, 0, 695700000, 1410, "#ffffb3", true, "#ff8000");
 
 	var binary1Vel = star3.calculateBinaryOrbitalVelocity(star2);
 
@@ -400,13 +395,11 @@ function createQuinaryStarSystem() {
 
 	star4.velocity.y = -star4.calculateOrbitalVelocity(star1);
 
-	pObjs = [star1, star2, star3, star4, star5];
-
-	engine.objects = pObjs;
+	engine.objects = [star1, star2, star3, star4, star5];
 }
 
 function createSolarSystem() {
-	var sun = new CircleObj(0, 0, 0, 696340000, 1410, "#fff4b3", true, "#ff8000");
+	var sun = new CircleObj(0, 0, 0, 696340000, 1410, "#ffffb3", true, "#ff8000");
 	var mercury = new CircleObj(-50478000000, 0, 0, 2439700, 5430, "#bfbfbf", false);
 	var venus = new CircleObj(-108520000000, 0, 0, 6051800, 5240, "#bfa050", false);
 	var earth = new CircleObj(-150240000000, 0, 0, 6378100, 5510, "#00bfff", false);
@@ -419,17 +412,15 @@ function createSolarSystem() {
 	mars.velocity.y = mars.calculateOrbitalVelocity(sun);
 	jupiter.velocity.y = jupiter.calculateOrbitalVelocity(sun);
 
-	pObjs = [sun, mercury, venus, earth, mars, jupiter];
-
-	engine.objects = pObjs;
+	engine.objects = [sun, mercury, venus, earth, mars, jupiter];
 }
 
 createTrinaryStarSystem();
 
-// var testObj = new CircleObj(-74798935.5, 1495978.71, 0, 695700, 1000, "#fff4b3", true, "#ff8000");
-// var testObj2 = new CircleObj(-74798935.5, -1495978.71, 0, 695700, 1000, "#fff4b3", true, "#ff8000"); // 149597871
+// var testObj = new CircleObj(-74798935.5, 1495978.71, 0, 695700, 1000, "#ffffb3", true, "#ff8000");
+// var testObj2 = new CircleObj(-74798935.5, -1495978.71, 0, 695700, 1000, "#ffffb3", true, "#ff8000"); // 149597871
 
-// var testObj3 = new CircleObj(0, 0, 0, 6957000, 1000, "#fff4b3", true, "#ff8000");
+// var testObj3 = new CircleObj(0, 0, 0, 6957000, 1000, "#ffffb3", true, "#ff8000");
 
 var testPoints = [];
 
@@ -547,6 +538,12 @@ function main() {
 		ctx.closePath();
 		ctx.stroke();
 		ctx.restore();
+
+		// ctx.beginPath();
+		// ctx.moveTo(engine.objects[0].position.x / 20000000, engine.objects[0].position.y / 20000000);
+		// ctx.lineTo(mouse.position.x, mouse.position.y);
+		// ctx.stroke();
+		// ctx.closePath();
 	}
 
 	ctx.restore();
@@ -656,9 +653,13 @@ scene.addEventListener("mousedown", (e) => {
 	}
 
 	if (mouse.rightdown == true && engine.objects.length > 0) {
-		var star = new CircleObj(mouse.position.x * 20000000, mouse.position.y * 20000000, 0, 695700000, 1410, "#fff4b3", true, "#ff8000");
-		star.velocity.y = -star.calculateOrbitalVelocity(engine.objects[0]);
-		pObjs.push(star);
+		var star = new CircleObj(mouse.position.x * 20000000, mouse.position.y * 20000000, 0, 695700000, 1410, "#ffffb3", true, "#ff8000");
+		var speed = -star.calculateOrbitalVelocity(engine.objects[0]);
+		var rotation = mouse.position.multiply(20000000).subtract(engine.objects[0].position.toVec2()).direction();
+		var vel = new Vec2(0, speed).rotateAroundPoint(Vec2.zero, rotation);
+		star.velocity.x = vel.x;
+		star.velocity.y = vel.y;
+		// alert(star.position.x)
 		engine.addObject(star);
 	}
 });

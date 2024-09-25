@@ -599,11 +599,11 @@ window.addEventListener("keydown", (e) => {
 	// e.preventDefault();
 
 	if (e.key === "ArrowLeft") {
-		timeAcceleration = clamp(0.25, 32768, timeAcceleration / 2);
+		timeAcceleration = clamp(0.25, 32768, timeAcceleration / 2); 
 	}
 
 	if (e.key === "ArrowRight") {
-		timeAcceleration = clamp(0.25, 32768, timeAcceleration * 2);
+		timeAcceleration = clamp(0.25, 32768, timeAcceleration * 2); 
 	}
 });
 

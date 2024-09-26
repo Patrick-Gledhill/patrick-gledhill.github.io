@@ -203,7 +203,7 @@ strong {
 }
 
 #close-slides {
-	position: fixed;
-	bottom: 32px;
-	left: 32px;
+	position: fixed; 
+	bottom: 32px; 
+	left: 32px; 
 }

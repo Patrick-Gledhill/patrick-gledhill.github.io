@@ -204,6 +204,6 @@ strong {
 
 #close-slides {
 	position: fixed;
-	bottom: 64px;
-	left: 64px;
+	bottom: 32px;
+	left: 32px;
 }

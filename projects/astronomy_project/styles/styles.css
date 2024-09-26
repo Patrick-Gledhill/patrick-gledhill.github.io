@@ -197,3 +197,9 @@ strong {
     width: 40%;
     border-radius: 8px;
 }
+
+#close-slides {
+    position: fixed;
+    bottom: 64px;
+    left: 64px;
+}
